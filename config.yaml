@@ -1,0 +1,21 @@
+model:
+  name: base01
+
+training:
+  seed: 23
+  epochs: 30
+  batch_size: 8
+  learning_rate: 0.001
+  num_workers: 0
+  output_dir: ./runs/
+
+dataset:
+  root: D:\04_Datasets\Resources\database
+  train_dir: training
+  test_dir: testing
+  in_channels: 1
+  image_size: [256, 256]
+  val_ratio: 0.2
+
+metrics:
+  reduction: macro
