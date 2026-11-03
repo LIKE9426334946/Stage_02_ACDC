@@ -1,8 +1,17 @@
 from .base01 import BaseModel_01
+from .base02 import BaseModel_02
+from .base03 import BaseModel_03
 
 from .heart01 import HeartNetwork_01
+from .heart02 import HeartNetwork_02
 
-MODEL_REGISTRY = {"base01": BaseModel_01, "heart01": HeartNetwork_01}
+MODEL_REGISTRY = {
+    "base01": BaseModel_01,
+    "base02": BaseModel_02,
+    "base03": BaseModel_03,
+    "heart01": HeartNetwork_01,
+    "heart02": HeartNetwork_02,
+}
 
 
 def build_model(model_config):

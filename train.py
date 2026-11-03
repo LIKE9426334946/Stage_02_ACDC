@@ -65,7 +65,7 @@ def main():
 
     criterion = nn.CrossEntropyLoss()
     optimizer = Adam(model.parameters(), lr=config["training"]["learning_rate"])
-    output_dir = Path(config["training"]["output_dir"])
+    output_dir = Path(config["training"]["output_dir"]) / config["model"]["name"]
     output_dir.mkdir(parents=True, exist_ok=True)
 
     best_val_loss = float("inf")
