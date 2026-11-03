@@ -60,8 +60,8 @@ def main():
     print("训练集数据数量：", len(train_dataset))
     print("验证集数据数量：", len(val_dataset))
 
-    model = build_model(config["model"]["name"]).to(device)
-    print(f"使用的模型为：{config["model"]["name"]}")
+    model = build_model(config["model"]).to(device)
+    print(f"使用的模型为：{config['model']['name']}")
 
     criterion = nn.CrossEntropyLoss()
     optimizer = Adam(model.parameters(), lr=config["training"]["learning_rate"])
@@ -69,7 +69,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     best_val_loss = float("inf")
-    best_val_iou = 0.0
+    best_val_iou = -1.0
     epochs = config["training"]["epochs"]
 
     history = []
@@ -90,7 +90,7 @@ def main():
             train_loss_sum += loss.item() * images.size(0)
         train_loss = train_loss_sum / len(train_dataset)
 
-        val_metrics = evaluate(model, val_dataset, criterion, device)
+        val_metrics = evaluate(model, val_loader, criterion, device)
         val_loss = val_metrics["loss"]
         val_iou = val_metrics["iou"]
 

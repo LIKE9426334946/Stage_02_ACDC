@@ -86,7 +86,7 @@ class FusionUp(nn.Module):
 
 
 class HeartNetwork_01(nn.Module):
-    def __init__(self, in_channels=3, out_channels=1):
+    def __init__(self, in_channels=1, out_channels=4):
         super().__init__()
         self.left = nn.Conv2d(in_channels, 64, 7, padding=3, stride=2)
         self.right = nn.Conv2d(in_channels, 64, 7, padding=3, stride=2)
