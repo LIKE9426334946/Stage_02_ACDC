@@ -23,7 +23,7 @@ if __name__ == "__main__":
     model = BaseModel_02(1, 4)
     trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print(f"可训练参数量: {trainable_params / 1e6:.2f} M")  # 14.33M
-    x = torch.randn(2, 3, 256, 256)
+    x = torch.randn(2, 1, 256, 256)
 
     with torch.no_grad():
         model(x)
